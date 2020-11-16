@@ -1,0 +1,64 @@
+
+npm ini
+npm install express
+npm install typescript
+tsc --init 
+//  "target": "ES2020",  
+//  "outDir": "./build/src",  
+//  "moduleResolution": "node", 
+//new folder src
+
+,"include":[
+".src/**/**"
+],
+"exclude":[
+".src/**/**"
+]
+
+npm i @types/express -D
+
+//dentro de src-----las siguientes carpetas.
+
+controllers
+libs
+models
+routes
+views
+database.ts
+index.ts
+key.ts
+
+------------En index.ts---------------
+import  express  from "express";
+const app = express();
+
+app.set('port', 3000);
+
+app.listen(app.get('port'),()=>{
+
+console.log(`servidor levantado en ${app.get('port')}`);
+
+});
+
+---------------
+npm install -g ts-node //solo en torno de desarrollo
+
+--en script: config.js--  (npm run start)
+"build": "node tsc"
+"start": "node ./build/src"
+"play": "node tsc && node ./build/src"
+"dev": "nodemon"
+
+----------------
+npm i nodemon -D
+
+--// en raiz--
+
+nodemon.json
+
+{
+    "watch": "src",
+    "ext": "ts",
+    "ignore":[ "src/**/*.spec.ts"],
+    "exec": "ts-node ./src/index.ts"
+}
